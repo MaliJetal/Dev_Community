@@ -1,0 +1,25 @@
+{
+  "name": "dev_community",
+  "version": "1.0.0",
+  "description": "Web Application for developers to communicate, explore and learn.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaliJetal/Dev_Community.git"
+  },
+  "author": "Jetal Mali (https://github.com/MaliJetal)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaliJetal/Dev_Community/issues"
+  },
+  "homepage": "https://github.com/MaliJetal/Dev_Community#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
