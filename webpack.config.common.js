@@ -1,4 +1,7 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const entryFile = path.resolve(__dirname, 'src', 'client', 'index.js');
 const outputDir = path.resolve(__dirname, 'public');
 module.exports = {
@@ -7,6 +10,14 @@ module.exports = {
       filename: 'bundle.js',
       path: outputDir
  },
+ plugins: [
+  new CleanWebpackPlugin(),
+  new HtmlWebpackPlugin({
+    filename : 'index.html',
+    inject:true,
+    template:path.resolve(__dirname,'src','index.html')
+  })
+],
  module: {
     rules: [
       {
