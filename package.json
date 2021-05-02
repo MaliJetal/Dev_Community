@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node src/server/index.js",
-    "prestart": "webpack --mode development"
+    "build": "webpack --config=webpack.config.prod.js",
+    "build-dev": "webpack --config=webpack.config.dev.js",
+    "prestart": "webpack serve --config=webpack.config.dev.js --open",
+    "start": "babel-node src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,8 @@
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "express": "^4.17.1",
     "gravatar": "1.8.1",
+    "html-webpack-plugin": "^5.3.1",
+    "image-webpack-loader": "^7.0.1",
     "jsonwebtoken": "8.5.1",
     "mini-css-extract-plugin": "^1.6.0",
     "mongodb": "3.6.6",

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entryFile = path.resolve(__dirname, 'src', 'client', 'index.js');
 const outputDir = path.resolve(__dirname, 'public');
+
 module.exports = {
  entry: ['babel-polyfill', entryFile],
  output: {
@@ -26,19 +27,22 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-      test: /\.(scss|css)$/,
-      use: [
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
           {
-            loader: 'style-loader'
-          }, 
-          { 
-            loader: 'css-loader',
-          }, 
-          { 
-            loader: 'sass-loader' 
-          }
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer
+            },
+          },
         ]
+      },
+      {
+        test: /\.svg$/,
+        use: 'file-loader'
       }
-    ]
- }
+    ],
+  }
 };
