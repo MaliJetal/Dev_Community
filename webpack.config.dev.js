@@ -5,12 +5,12 @@ module.exports = merge(commonConfig, {
   mode : 'development',
   devtool : 'inline-source-map',
   devServer : {
-    contentBase : './dist',
-    port:'3000',
+    contentBase : path.join(__dirname, 'dist'),
+    port:'5000',
     proxy: {
-      '/widgets': {
+      '/api/users': {
           // server to proxy
-          target: 'http://localhost:5000'
+          target: 'http://localhost:3000/'
       }
     }
   },

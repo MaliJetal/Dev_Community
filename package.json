@@ -2,13 +2,15 @@
   "name": "dev_community",
   "version": "1.0.0",
   "description": "Web Application for developers to communicate, explore and learn.",
-  "main": "index.js",
+  "main": "src/client/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config=webpack.config.prod.js",
     "build-dev": "webpack serve --config=webpack.config.dev.js",
-    "start": "nodemon --ignore dist src/server/index.js"
+    "start": "nodemon dist src/server/index.js",
+    "dev": "concurrently \"npm run build-dev \" \"npm run start\""
   },
+  "proxy": "http://localhost:5000",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaliJetal/Dev_Connector.git"
@@ -37,7 +39,7 @@
     "jwt-decode": "^3.1.2",
     "mini-css-extract-plugin": "^1.6.0",
     "mongodb": "3.6.6",
-    "mongoose": "5.12.5b",
+    "mongoose": "^5.12.7",
     "nodemon": "^2.0.7",
     "passport": "0.4.1",
     "passport-jwt": "4.0.0",

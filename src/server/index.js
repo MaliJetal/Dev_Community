@@ -1,10 +1,10 @@
 const express = require("express");
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const passport = require('passport');
 
 //api routes
-//const users = require('./routes/api/users');
+const users = require('./routes/api/users');
 
 //express
 const app = express();
@@ -19,19 +19,19 @@ const config={
     useNewUrlParser: true,
     useUnifiedTopology: true
 };
-//const db = require('./config/keys').mongoURL;
+const db = require('./config/keys').mongoURL;
 
 //connect to mongoDb
-//mongoose.connect(db,config).then(() => console.log("Mongo DB Connected")).catch(err=> console.log(err));
+mongoose.connect(db,config).then(() => console.log("Mongo DB Connected")).catch(err=> console.log(err));
 
 //passport middleware
-//app.use(passport.initialize());
+app.use(passport.initialize());
 
 // Passport Config
-//require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 //use routes
-//app.use("/api/users", users);
+app.use("/api/users", users);
 
 app.use("/", (req,res) => res.send("Hello World"));
 
