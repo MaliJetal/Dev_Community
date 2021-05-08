@@ -5,7 +5,14 @@ module.exports = merge(commonConfig, {
   mode : 'development',
   devtool : 'inline-source-map',
   devServer : {
-    contentBase : './public'
+    contentBase : './dist',
+    port:'3000',
+    proxy: {
+      '/widgets': {
+          // server to proxy
+          target: 'http://localhost:5000'
+      }
+    }
   },
   module : {
     rules : [

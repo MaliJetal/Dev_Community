@@ -8,7 +8,7 @@ const passport = require('passport');
 
 //express
 const app = express();
-app.use(express.static(__dirname,'..', '..', '/public'));
+app.use(express.static(__dirname +'..'+ '..'+ '/public'));
 //body-parser
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());

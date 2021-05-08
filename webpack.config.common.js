@@ -3,10 +3,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entryFile = path.resolve(__dirname, 'src', 'client', 'index.js');
-const outputDir = path.resolve(__dirname, 'public');
+const outputDir = path.resolve(__dirname, 'dist');
 
 module.exports = {
  entry: ['babel-polyfill', entryFile],
+ context: __dirname,
  output: {
       filename: 'bundle.js',
       path: outputDir
@@ -16,7 +17,7 @@ module.exports = {
   new HtmlWebpackPlugin({
     filename : 'index.html',
     inject:true,
-    template:path.resolve(__dirname,'src','index.html')
+    template:path.resolve(__dirname,'public','index.html')
   })
 ],
  module: {
