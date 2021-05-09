@@ -9,7 +9,7 @@ module.exports = merge(commonConfig, {
     contentBase : path.join(__dirname , 'dist'),
     port:'3080',
     proxy:{
-      '/api':{
+      '/api/*':{
         target:"http://localhost:5000",
         //pathRewrite: { '^/api/users': '' }
       }
