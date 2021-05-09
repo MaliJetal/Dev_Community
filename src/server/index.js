@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const passport = require('passport');
+//webpack handling
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 //api routes
 const users = require('./routes/api/users');
@@ -30,11 +32,12 @@ app.use(passport.initialize());
 // Passport Config
 require('./config/passport')(passport);
 
+//wepack proxy
+//app.use('/api/users', createProxyMiddleware({ target: 'http://localhost:5000', changeOrigin: true }));
 //use routes
 app.use("/api/users", users);
 
 app.use("/", (req,res) => res.send("Hello World"));
 
 const port = process.env.PORT|| 5000;
-
 app.listen(port, () => console.log(`Server running at port ${port}`));

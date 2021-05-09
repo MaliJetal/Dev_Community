@@ -9,8 +9,8 @@ module.exports = {
  entry: ['babel-polyfill', entryFile],
  context: __dirname,
  output: {
-      filename: 'bundle.js',
-      path: outputDir
+    filename: 'bundle.js',
+    path: outputDir
  },
  plugins: [
   new CleanWebpackPlugin(),
