@@ -1,0 +1,10 @@
+git push -u origin main
+git status 
+git branch -a // all local and remote  -r - remote 
+git commit -m "Messsage here"
+git add . / git add filename
+git remote add origin <URL_Path>
+git pull <remte_url>
+git clone <remote_URL>
+git fetch  
+git branch -m "new_name" //rename branch
