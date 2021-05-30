@@ -1,0 +1,41 @@
+React-Roadmap
+1. Basics
+  - HTML
+  - CSS
+  - JS
+2. Other Development Skills
+ - Git
+ - Data Structures and algorithmns
+ - Putty
+
+3. React
+ - Build Tools 
+  - package manager- npm,yarn
+  - webpack
+  - task runners- npm scripts & gulp
+ - State Management
+  - Context API,
+  - Redux
+  - Async Actions- redux thunk, Redux Saga, Redux better promise
+  - Helpers -  rematch, reselect
+  - Type Checkers- PropTypes , TypeScript
+  - Routing - React Router
+
+4. API Clients - 
+  REST - fetch(), axios 
+ 
+5. Styling 
+  - CSS Preprocessor - SASS,SCSS
+  - CSS Frameworks - Bootstrap, Tailwind CSS
+
+6. Utility Libraries
+ - Loadash
+ - Moment
+ - classnames
+
+7. Unit Testing
+ - Jest
+ - Enzyme
+ - Sinors
+
+ 
