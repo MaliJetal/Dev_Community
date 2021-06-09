@@ -4,7 +4,7 @@
   "description": "Web Application for developers to communicate, explore and learn.",
   "main": "src/client/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "react-scripts test",
     "build": "webpack --config=webpack.config.prod.js",
     "build-dev": "webpack serve --config=webpack.config.dev.js",
     "start": "nodemon dist src/server/index.js",
@@ -23,6 +23,9 @@
   "homepage": "https://github.com/MaliJetal/Dev_Connector#readme",
   "dependencies": {
     "@babel/core": "^7.14.0",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
     "axios": "^0.21.1",
     "babel-node": "0.0.1-security",
     "bcryptjs": "2.4.3",
@@ -65,6 +68,7 @@
     "@babel/preset-react": "^7.13.13",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
