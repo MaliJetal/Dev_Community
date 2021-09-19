@@ -30,20 +30,51 @@ class CreateProfile extends Component {
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
+    this.toggleSocialInputs = this.toggleSocialInputs.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   if (prevState.errors !== nextProps.errors) {
+  //     return {
+  //       displaySocialInputs: false,
+  //       handle: "",
+  //       company: "",
+  //       website: "",
+  //       location: "",
+  //       status: "",
+  //       skills: "",
+  //       bio: "",
+  //       githubusername: "",
+  //       twitter: "",
+  //       facebook: "",
+  //       youtube: "",
+  //       instagram: "",
+  //       linkedin: "",
+  //       errors: nextProps.errors,
+  //       // this.setState({ errors: nextProps.errors });
+  //     };
+  //   }
+  //   return null;
+  // }
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
   }
 
-  onChange(e) {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  toggleSocialInputs() {
+    this.setState((prevState) => ({
+      displaySocialInputs: !prevState.displaySocialInputs,
+    }));
   }
 
-  onSubmit() {
+  onSubmit(e) {
+    e.preventDefault();
     const profileData = {
       handle: this.state.handle,
       company: this.state.company,
@@ -73,7 +104,7 @@ class CreateProfile extends Component {
             name="twitter"
             icon="fab faa-twitter"
             value={this.state.twitter}
-            onChange={this.onchange}
+            onChange={this.onChange}
             error={errors.twitter}
           />
           <InputGroup
@@ -81,7 +112,7 @@ class CreateProfile extends Component {
             name="youtube"
             icon="fab faa-youtube"
             value={this.state.youtube}
-            onChange={this.onchange}
+            onChange={this.onChange}
             error={errors.youtube}
           />
           <InputGroup
@@ -89,7 +120,7 @@ class CreateProfile extends Component {
             name="facebook"
             icon="fab faa-facebook"
             value={this.state.facebook}
-            onChange={this.onchange}
+            onChange={this.onChange}
             error={errors.facebook}
           />
           <InputGroup
@@ -97,7 +128,7 @@ class CreateProfile extends Component {
             name="instagram"
             icon="fab faa-instagram"
             value={this.state.instagram}
-            onChange={this.onchange}
+            onChange={this.onChange}
             error={errors.instagram}
           />
           <InputGroup
@@ -105,7 +136,7 @@ class CreateProfile extends Component {
             name="linkedin"
             icon="fab faa-linkedin"
             value={this.state.linkedin}
-            onChange={this.onchange}
+            onChange={this.onChange}
             error={errors.linkedin}
           />
         </div>
@@ -130,6 +161,7 @@ class CreateProfile extends Component {
                   error={errors.handle}
                   info="A unique handle for your profile URL. Your full name, company name,
                   nickname"
+                  disabled={false}
                 />
                 <SelectListGroup
                   placeholder="* Status"
@@ -142,6 +174,7 @@ class CreateProfile extends Component {
                     { label: "online", value: "online" },
                     { label: "offline", value: "offline" },
                   ]}
+                  disabled={false}
                 />
                 <TextFieldGroup
                   placeholder="Company"
@@ -150,6 +183,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.company}
                   info="Could be your own company or one you work for."
+                  disabled={false}
                 />
                 <TextFieldGroup
                   placeholder="* Website"
@@ -158,6 +192,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.website}
                   info="Could be your own website or a company one."
+                  disabled={false}
                 />
                 <TextFieldGroup
                   placeholder="Location"
@@ -166,6 +201,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.location}
                   info="City or city & state suggested (e.g. Boston, MA)"
+                  disabled={false}
                 />
                 <TextFieldGroup
                   placeholder="Skills"
@@ -175,6 +211,7 @@ class CreateProfile extends Component {
                   error={errors.skills}
                   info="Please use comma seperated values(eg.
                   HTML,CSS,JavaScript"
+                  disabled={false}
                 />
                 <TextFieldGroup
                   placeholder="Github Username"
@@ -183,6 +220,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.githubusername}
                   info="If you want your latest repos and a Github Link, include your username."
+                  disabled={false}
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
@@ -195,9 +233,7 @@ class CreateProfile extends Component {
                 <div className="mb-3">
                   <button
                     type="button"
-                    onClick={this.setState((prevState) => ({
-                      displaySocialInputs: !prevState.displaySocialInputs,
-                    }))}
+                    onClick={() => this.toggleSocialInputs()}
                     className="btn btn-light"
                   >
                     Add Social Network
