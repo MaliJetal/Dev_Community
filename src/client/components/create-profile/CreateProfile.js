@@ -174,7 +174,7 @@ class CreateProfile extends Component {
                     { label: "online", value: "online" },
                     { label: "offline", value: "offline" },
                   ]}
-                  disabled={false}
+                  disabled={true}
                 />
                 <TextFieldGroup
                   placeholder="Company"
